@@ -1,0 +1,51 @@
+module test_fulladder;
+
+  // Declare registers for inputs
+  reg a, b, cin;
+  // Declare wires for outputs
+  wire s, cout;
+
+  // Instantiate the fulladder module
+  fulladder FA (
+    .a(a), 
+    .b(b), 
+    .cin(cin), 
+    .s(s), 
+    .cout(cout)
+  );
+
+  // Initial block for simulation
+  initial begin
+    // Display header
+    $display("a b cin | s cout");
+
+    // Test different combinations of a, b, and cin
+    a = 0; b = 0; cin = 0; #10;  // Wait for 10 time units
+    $display("%b %b %b | %b %b", a, b, cin, s, cout);
+
+    a = 0; b = 0; cin = 1; #10;
+    $display("%b %b %b | %b %b", a, b, cin, s, cout);
+
+    a = 0; b = 1; cin = 0; #10;
+    $display("%b %b %b | %b %b", a, b, cin, s, cout);
+
+    a = 0; b = 1; cin = 1; #10;
+    $display("%b %b %b | %b %b", a, b, cin, s, cout);
+
+    a = 1; b = 0; cin = 0; #10;
+    $display("%b %b %b | %b %b", a, b, cin, s, cout);
+
+    a = 1; b = 0; cin = 1; #10;
+    $display("%b %b %b | %b %b", a, b, cin, s, cout);
+
+    a = 1; b = 1; cin = 0; #10;
+    $display("%b %b %b | %b %b", a, b, cin, s, cout);
+
+    a = 1; b = 1; cin = 1; #10;
+    $display("%b %b %b | %b %b", a, b, cin, s, cout);
+
+    // End of simulation
+    $finish;
+  end
+
+endmodule
